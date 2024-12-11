@@ -19,8 +19,8 @@ const startServer = async () => {
         console.error(error);
     }
     app.use(cors({
-        origin: 'http://localhost:3000',  // Ganti dengan URL frontend Anda
-        credentials: true,  // Agar cookies dikirimkan bersama request
+        origin: '*',  
+        credentials: true,  
     }));
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));

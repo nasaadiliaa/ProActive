@@ -9,7 +9,10 @@ const Task = db.define('Task', {
     },
     user_id: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    date: DataTypes.DATE,
+    date: {
+        type: DataTypes.DATE, 
+        allowNull: false, 
+    },
     status: DataTypes.INTEGER,
 }, {
     tableName: 'tasks',
