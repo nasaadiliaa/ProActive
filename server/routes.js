@@ -31,8 +31,9 @@ router.post('/users', async (req, res) => {
         const saltRounds = 10;  
         const hashedPassword = await bcrypt.hash(password_hash, saltRounds);
 
+        console.log(full_name, username, email, phone_number, hashedPassword);
         db.query('INSERT INTO users (full_name, username, email, phone_number, password_hash) VALUES (?, ?, ?, ?, ?)', 
-        [full_name, username, email, phone_number, hashedPassword], (err, result) => {
+        [full_name, username, email, phone_number || null, hashedPassword], (err, result) => {
             if (err) {
                 console.error('Error saat menambahkan pengguna:', err);
                 return res.status(500).json({ error: "Gagal menambahkan pengguna" });

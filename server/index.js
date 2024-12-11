@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import router from './routes.js';
 import db from './db.js';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 // import router from './routes/index.js';
 
 dotenv.config();
@@ -23,6 +24,7 @@ const startServer = async () => {
         credentials: true,  
     }));
     app.use(express.json());
+    app.use(bodyParser.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(cookieParser());
     app.use(express.json());
