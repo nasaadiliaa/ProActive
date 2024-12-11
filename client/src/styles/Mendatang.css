@@ -1,0 +1,238 @@
+.mendatang {
+  background: url("/public/img/bgweb.jpeg") no-repeat center center fixed;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0px 250px 0px 0px;
+}
+
+.mendatang .content {
+    margin-left: 250px;
+    padding: 2% 6.5%;
+    width: calc(100% - 250px);
+    background: url("/public/img/bgweb.jpeg") no-repeat center center fixed;
+  }
+  
+  .mendatang .heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-top: 20px;
+  }
+  
+  .mendatang .task-board-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .mendatang .board {
+    background-color: #bad6eb;
+    color: black;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+  }
+  
+  .mendatang .board-header {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .mendatang .task-list {
+    margin-top: 10px;
+  }
+  
+  .mendatang .task-item {
+    background-color: #fff9ef;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mendatang .task-item div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mendatang .task-item input[type="checkbox"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+  }
+  
+  .mendatang .task-item input[type="checkbox"]:checked {
+    background-color: #000000;
+  }
+  
+  .mendatang .task-item input[type="checkbox"]:checked::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: rgb(14, 13, 13);
+    font-size: 12px;
+  }
+  
+  .mendatang .task-item input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #b0bec5;
+  }
+  
+  .mendatang .task-item label {
+    font-size: 14px;
+  }
+  
+  .mendatang .task-item .task-details span {
+    font-size: 12px;
+    color: #344ead;
+  }
+  
+  .mendatang .add-task {
+    background-color: #fff9ef;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+  
+  .mendatang .add-task:hover {
+    background-color: #a0c4ff;
+  }
+  
+  .mendatang .add-board {
+    font-size: 30px;
+    cursor: pointer;
+    color: #0a0a0a;
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+  }
+  
+  .mendatang .add-board:hover {
+    color: #4d4c4a;
+  }
+  
+  .mendatang .board .add-board {
+    display: none;
+  }
+  
+  .mendatang .popup-calendar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .mendatang .popup-content {
+    background-color: #b3d1ff;
+    padding: 20px;
+    padding-right: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    position: relative;
+  }
+  
+  .mendatang .popup-content h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .mendatang .popup-content label {
+    display: block;
+    margin: 10px 5px;
+  }
+  
+  .mendatang .popup-content input,
+  .mendatang .popup-content textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  
+  .mendatang .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .mendatang .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .mendatang .buttons .cancel {
+    background-color: #00aaff;
+    color: #fff;
+  }
+  
+  .mendatang .buttons .ok {
+    background-color: #007bff;
+    color: #fff;
+    margin-right: -20px;
+  }
+  
+  .mendatang .popup-calendar .popup-content {
+    z-index: 2000;
+  }
+  
+  .mendatang .task-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .mendatang .task-details i.remove-task {
+    margin-left: 10px;
+  }
+  
+  .mendatang .task-item.completed label,
+  .mendatang .task-item.completed .task-details span {
+    text-decoration: line-through;
+    color: #b0bec5;
+  }
+  
+  .mendatang .taks-item {
+    margin-bottom: 16px;
+  }
+  
+  .mendatang .board i {
+    color: #344EAD;
+  }
+  
+  .mendatang .task-item.completed i {
+    color: #939393;
+  }  

@@ -1,0 +1,178 @@
+.hariini {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: url("/public/img/bgweb.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.hariini .content {
+  margin-left: 300px;
+  padding: 20px;
+  width: calc(100% + 150px);
+}
+
+.hariini .content h2 {
+  font-size: 24px;
+  color: white;
+}
+
+.hariini .task-list {
+  margin-top: 20px;
+}
+
+.hariini .task-item {
+  background-color: #d0e4ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-right: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.hariini .task-item:hover {
+  background-color: #a0c4ff;
+}
+
+.hariini .task-item div {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.hariini .task-item input[type="checkbox"] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #fff9ef;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+}
+
+.hariini .task-item input[type="checkbox"]:checked {
+  background-color: #000000;
+}
+
+.hariini .task-item.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.hariini .add-task {
+  background-color: #fff9ef;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed;
+  bottom: 65px;
+  right: 85px;
+  width: calc(75% - 100px);
+  box-sizing: border-box;
+}
+
+.hariini .add-task:hover {
+  background-color: #a0c4ff;
+}
+
+.hariini .task-details {
+  color: #344ead;
+}
+
+.hariini .task-item.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.hariini .task-item.completed .fas {
+  color: gray;
+}
+
+.hariini .remove-task {
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.hariini .remove-task:hover {
+  color: gray;
+}
+
+.hariini .popup-calendar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hariini .popup-content {
+  background-color: #b3d1ff;
+  padding: 20px;
+  padding-right: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  position: relative;
+}
+
+.hariini .popup-content h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hariini .popup-content label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.hariini .popup-content input,
+.hariini .popup-content textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.hariini .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.hariini .buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hariini .buttons .cancel {
+  background-color: #00aaff;
+  color: #fff;
+}
+
+.hariini .buttons .ok {
+  background-color: #007bff;
+  color: #fff;
+  margin-right: -20px;
+}

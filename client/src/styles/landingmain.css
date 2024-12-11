@@ -1,0 +1,36 @@
+body {
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    background: url("/public/img/bgweb.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+  
+  .main-wrapper {
+    height: 100vh; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    display: flex; 
+    flex-direction: column; 
+  }
+    
+  
+  /* landingpage */
+  .button {
+    font-size: 22px;
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    padding: 0.5em 2em;
+    background: linear-gradient(to right, #008CFF, #63BEFF);
+    border: none;
+    border-radius: 42px;
+    margin-top: 1.2em;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+  
+    &:hover {
+      box-shadow: 0 8

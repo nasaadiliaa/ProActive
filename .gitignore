@@ -1,0 +1,26 @@
+.DS_Store
+.Trash/
+.CFUserTextEncoding
+
+# Direktori global
+.android/
+.anydesk/
+.bash_profile
+.cache/
+.composer/
+.config/
+.docker/
+.flutter/
+.npm/
+.nvm/
+.sdkman/
+.vscode/
+.yarn/
+.zsh_sessions/
+.zsh_history
+
+# Direktori proyek tidak relevan
+../*
+
+# Node.js
+node_modules/

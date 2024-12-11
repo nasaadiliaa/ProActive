@@ -1,0 +1,23 @@
+GET http:localhost:8083/users
+
+###
+POST  http://localhost:8083/users
+
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "password123",
+    "confPassword": "password123"
+}
+
+###
+POST  http://localhost:8083/login
+
+Content-Type: application/json
+
+{
+    "email": "pikaw@gmail.com",
+    "password": "1111"
+}

@@ -1,0 +1,318 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  /* background: url("/public/img/bgweb.jpeg") no-repeat center center fixed; */
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: url("/public/img/bgweb.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.profile-section {
+  padding: 0px 110px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.profile-card {
+  margin-bottom: 30px;
+  margin-right: 250px;
+  background-color: #d0e4ff;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-size: medium;
+}
+
+.profile-card h2 {
+  font-size: 20px;
+  color: #23395d;
+  margin-bottom: 8px;
+}
+
+.profile-card img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.profile-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: medium;
+}
+
+.profile .input-group {
+  display: flex;
+  gap: 20px;
+}
+
+.profile .input-group div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile .profile-card input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #333;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.profile .profile-card label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #23395d;
+}
+
+.profile .profile-card .button-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.profile .profile-card button {
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.profile .edit-button {
+  background-color: #4a90e2;
+}
+
+.profile .edit-button:hover {
+  background-color: #357ab8;
+}
+
+.profile .delete-button {
+  background-color: #e74c3c;
+}
+
+.profile .delete-button:hover {
+  background-color: #c0392b;
+}
+
+.profile .change-password-button {
+  background-color: #4a90e2;
+  width: 100%;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.profile .change-password-button:hover {
+  background-color: #357ab8;
+}
+
+.profile .editable {
+  border: 1px solid #007bff;
+  background-color: #f0f8ff;
+}
+
+/* Modal container styling */
+.profile .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal content box */
+.profile .modal-content {
+  background-color: #e0f0ff;
+  padding: 15px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Modal header style */
+.profile .modal-content h2 {
+  margin-top: 0;
+  background-color: #23395d;
+  color: #ffffff;
+  padding: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Close button styling */
+.profile .close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile .close:hover {
+  color: #ff4d4d;
+}
+
+/* Input styling */
+.profile .modal-content input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.profile .modal-content button {
+  width: 100%;
+  padding: 8px;
+  background-color: #1a73e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.profile .modal-content button:hover {
+  background-color: #005bb5;
+}
+
+/* Text paragraph styling inside modal */
+.profile .modal-content p {
+  color: #333333;
+  margin: 10px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .profile .sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile .profile-card {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .profile .profile-card h2 {
+    font-size: 16px;
+  }
+
+  .profile .profile-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile .input-group {
+    flex-direction: column;
+  }
+
+  .profile .sidebar a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile .sidebar {
+    padding: 8px;
+  }
+
+  .profile .profile-card {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .profile .profile-card h2 {
+    font-size: 14px;
+  }
+
+  .profile .profile-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .profile .profile-card p {
+    font-size: 12px;
+  }
+
+  .profile .sidebar a {
+    font-size: 10px;
+  }
+}
+
+/* Tambahkan aturan berikut ke dalam .profile-section */
+.profile .profile-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  width: 100%;
+  min-height: 100vh;
+  margin-left: 250px;
+}
+
+/* Tambahkan aturan berikut jika diperlukan untuk menyesuaikan tampilan responsif */
+@media (max-width: 768px) {
+  .profile .profile-section {
+    margin-left: 0;
+  }
+}
