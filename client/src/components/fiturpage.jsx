@@ -1,5 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
+import styled, { keyframes, css } from 'styled-components';
+
+const slideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const Section = styled.section`
   padding: 32px 12px;
@@ -17,6 +38,12 @@ const TitleContainer = styled.div`
   font-weight: 700;
   margin: 0 auto 60px;
   max-width: 35%;
+  opacity: 0;
+  animation: ${fadeIn} 1s ease-out forwards;
+  animation-delay: 0.5s;
+  ${({ inView }) => inView && css`
+    animation: ${fadeIn} 1s ease-out forwards;
+  `}
 `;
 
 const FeaturesContainer = styled.div`
@@ -34,15 +61,15 @@ const FeatureCard = styled.div`
   max-width: 35%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: none;
-  margin-bottom: 20px; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  }
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: ${slideIn} 1s ease-out forwards;
+  ${({ inView, index }) => inView && css`
+    animation: ${slideIn} 1s ease-out forwards;
+    animation-delay: ${index * 0.3}s;
+  `}
 `;
-
 
 const FeatureImage = styled.img`
   width: 50%;
@@ -61,34 +88,24 @@ const Judul = styled.h3`
 `;
 
 function FiturPage() {
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.5,
+  });
+
   return (
-    <Section>
-      
-      <TitleContainer>
+    <Section ref={sectionRef}>
+      <TitleContainer inView={sectionInView}>
         Mari lihat apa saja fitur di ProActive
       </TitleContainer>
 
-      
       <FeaturesContainer>
-        <FeatureCard>
-          <Judul>Tugas & Daftar</Judul>
-          <FeatureImage src="/img/assets/svg/Tugas daftar.svg" alt="Fitur 1" />
-        </FeatureCard>
-
-        <FeatureCard>
-          <Judul>Kalender</Judul>
-          <FeatureImage src="/img/assets/svg/Kalender.svg" alt="Fitur 2" />
-        </FeatureCard>
-
-        <FeatureCard>
-          <Judul>Kolaborasi</Judul>
-          <FeatureImage src="/img/assets/svg/Kolaborasi.svg" alt="Fitur 3" />
-        </FeatureCard>
-
-        <FeatureCard>
-          <Judul>Waktu</Judul>
-          <FeatureImage src="/img/assets/svg/Waktu.svg" alt="Fitur 4" />
-        </FeatureCard>
+        {['Tugas & Daftar', 'Kalender', 'Kolaborasi', 'Waktu'].map((title, index) => (
+          <FeatureCard key={index} index={index} inView={sectionInView}>
+            <Judul>{title}</Judul>
+            <FeatureImage src={`/img/assets/svg/${title.replace(' ', ' ')}.svg`} alt={`Fitur ${index + 1}`} />
+          </FeatureCard>
+        ))}
       </FeaturesContainer>
     </Section>
   );

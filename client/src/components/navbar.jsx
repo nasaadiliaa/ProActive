@@ -1,5 +1,6 @@
-import React from 'react';
+import { Navigate, React, useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Cookies from 'universal-cookie';
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -58,7 +59,23 @@ const LoginButton = styled.a`
   }
 `;
 
+const cookies = new Cookies();
+
 function Navbar() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(null); 
+
+  useEffect(() => {
+    const token = cookies.get('accessToken');
+    console.log("token", token);
+
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []);
+
   return (
     <NavbarContainer>
       <LogoContainer href="/">
@@ -68,7 +85,12 @@ function Navbar() {
           <ActiveText>Active</ActiveText>
         </Title>
       </LogoContainer>
-      <LoginButton href="login">Login</LoginButton>
+      {isAuthenticated ? (
+        <LoginButton href="HariIni">Produktif</LoginButton>
+      ) : (
+        <LoginButton href="login">Login</LoginButton>
+      )}
+      
     </NavbarContainer>
   );
 }

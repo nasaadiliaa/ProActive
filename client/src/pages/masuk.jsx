@@ -1,18 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/daftar.css';
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (email && password) {
-      navigate("/HariIni");
-    } else {
+
+  const handleLogin = async () => {
+    if (!email || !password) {
       alert("Silakan isi email dan password.");
+      return;
     }
+
+    try {
+      const response = await axios.post('http://localhost:8083/login', {
+        email,
+        password,
+      }, { withCredentials: true });
+  
+      if (response.status === 200) {
+        localStorage.setItem('accessToken', response.data.token);
+        navigate('/HariIni');
+      } else {
+        alert("Login gagal. Silakan coba lagi.");
+      }
+    } catch (error) {
+      console.error('Error saat login:', error);
+      alert("Terjadi kesalahan saat login. Periksa email atau password Anda.");
+    }
+
+    // if (email && password) {
+    //   navigate("/HariIni");
+    // } else {
+    //   alert("Silakan isi email dan password.");
+    // }
   };
 
   return (

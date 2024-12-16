@@ -48,7 +48,6 @@ const HariIni = () => {
         });
 
         setTasks(tasks)
-        console.log('Tasks:', tasks); // Log data tasks
         return tasks;
     } catch (error) {
         console.error('Error saat mengambil tasks:', error);

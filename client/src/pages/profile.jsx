@@ -2,17 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "../styles/profil.css";
 import Sidebar from "../components/Sidebar";
+import axios from "axios";
 
 const Profile = () => {
   const navigate = useNavigate(); 
   const [isEditable, setIsEditable] = useState(false);
-  const [formData, setFormData] = useState({
-    fullname: "Jane Doe",
-    username: "janedoe",
-    email: "janedoe@gmail.com",
-    phone: "081234567890",
-    password: "oldpassword123", 
-  });
+  const [formData, setFormData] = useState({});
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false); 
@@ -23,12 +18,29 @@ const Profile = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
+  const fetchUser = async () => {
+    try {
+      const response = await axios.get('http://localhost:8083/current-user', {
+        withCredentials: true, // Pastikan cookie dikirim bersama permintaan
+      });
+  
+      if (response.status === 200) {
+        console.log('User:', response.data);
+        setFormData(response.data)
+        return response.data; // Kembalikan data user
+      }
+    } catch (err) {
+      console.error('Error saat fetch user:', err);
+      if (err.response && err.response.status === 401) {
+        alert('Silakan login kembali.');
+      }
+    }
+  };
+
   // Load data dari localStorage saat komponen dimuat
   useEffect(() => {
-    const storedData = localStorage.getItem("profileData");
-    if (storedData) {
-      setFormData(JSON.parse(storedData));
-    }
+    fetchUser()
+    console.log(formData)
   }, []);
 
   const handleEditToggle = () => {
@@ -94,9 +106,25 @@ const Profile = () => {
     navigate("/daftar"); 
   };
 
-  const handleLogout = () => {
-    setShowLogoutModal(false);
-    navigate("/Login");
+  const handleLogout = async () => {
+    try {
+      // Kirim permintaan ke server untuk logout
+      const response = await fetch('http://localhost:8083/logout', {
+        method: 'DELETE',
+        credentials: 'include', // Pastikan cookie ikut serta dalam permintaan
+      });
+  
+      if (!response.ok) {
+        throw new Error('Logout gagal');
+      }
+  
+      // Setelah logout berhasil, sembunyikan modal dan arahkan ke halaman login
+      setShowLogoutModal(false);
+      navigate("/Login");
+    } catch (error) {
+      console.error('Error saat logout:', error);
+      alert('Terjadi kesalahan saat logout');
+    }
   };
 
   return (
@@ -110,7 +138,7 @@ const Profile = () => {
             src="https://i.pinimg.com/564x/d7/d0/13/d7d013aa4c1ee9bc96fc8ee329467d34.jpg"
             alt="Profile Picture"
           />
-          <h2>{formData.fullname}</h2>
+          <h2>{formData.full_name}</h2>
           <p>{formData.email}</p>
           <form>
             <div style={{ display: "flex", gap: "10px" }}>
@@ -119,7 +147,7 @@ const Profile = () => {
                 <input
                   type="text"
                   id="fullname"
-                  value={formData.fullname}
+                  value={formData.full_name}
                   onChange={handleInputChange}
                   readOnly={!isEditable}
                 />
@@ -152,7 +180,7 @@ const Profile = () => {
                 <input
                   type="tel"
                   id="phone"
-                  value={formData.noHandphone}
+                  value={formData.phone_number}
                   onChange={handleInputChange}
                   readOnly={!isEditable}
                 />

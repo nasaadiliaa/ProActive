@@ -48,6 +48,8 @@ const Daftar = () => {
     e.preventDefault();
     const { fullname, username, email, noHandphone, password, konfirmasiPassword } = formData;
 
+    console.log("formdata:", formData);
+
     if (!fullname || !username || !email || !noHandphone || !password || !konfirmasiPassword) {
       setErrorMessage("Harap isi semua kolom.");
       return;
@@ -70,7 +72,7 @@ const Daftar = () => {
 
     try {
       // Kirim data ke backend menggunakan Axios
-      const response = await axios.post("http://localhost:5000/users", {
+      const response = await axios.post("http://localhost:8083/users", {
         full_name: fullname,
         username: username,
         email: email,
@@ -80,7 +82,7 @@ const Daftar = () => {
 
       // Jika berhasil, reset error dan navigasi ke halaman login
       setErrorMessage(""); 
-      localStorage.setItem("profileData", JSON.stringify(formData));
+      localStorage.setItem("profileData", JSON.stringify(response));
       alert("Pendaftaran berhasil!");
       navigate("/Login");
 

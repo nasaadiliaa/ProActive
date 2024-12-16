@@ -137,19 +137,19 @@ function Footer() {
         <Header>ProActive Tim</Header>
 
         <IconSosmed>
-          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="Instagram">
+          <SocialIcon href="/" target="_blank" rel="noopener noreferrer" title="Instagram">
             <FaInstagram />
           </SocialIcon>
-          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="Facebook">
+          <SocialIcon href="/" target="_blank" rel="noopener noreferrer" title="Facebook">
             <FaFacebook />
           </SocialIcon>
-          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+          <SocialIcon href="/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
             <FaLinkedinIn />
           </SocialIcon>
-          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="TikTok">
+          <SocialIcon href="/" target="_blank" rel="noopener noreferrer" title="TikTok">
             <FaTiktok />
           </SocialIcon>
-          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="Twitter">
+          <SocialIcon href="/" target="_blank" rel="noopener noreferrer" title="Twitter">
             <FaXTwitter />
           </SocialIcon>
         </IconSosmed>
@@ -158,7 +158,7 @@ function Footer() {
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <LinkGroup>
           <FooterLinkTitle>ProActive</FooterLinkTitle>
-          <Link href="#tentang proactive">Tentang ProActive</Link>
+          <Link href="#tentangproactive">Tentang ProActive</Link>
         </LinkGroup>
 
         <LinkGroup>
